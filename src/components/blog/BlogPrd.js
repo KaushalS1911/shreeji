@@ -31,6 +31,7 @@ const BlogPrd = () => {
   return (
     <>
       <Box sx={{ mt: { md: 15, sm: 10, xs: 5 } }}>
+
         <Container>
           <Box sx={{ position: 'relative' }}>
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mb: { md: 10, xs: 5 } }}>
