@@ -26,6 +26,7 @@ const BlogPrd = () => {
 
   useEffect(() => {
     axios.get("https://shreeji-be.onrender.com/api/blog").then((res) => setBlogPrd(res.data.data)).catch((err) => console.log(err))
+
   },[])
   console.log(blogPrd,"hello")
   return (
