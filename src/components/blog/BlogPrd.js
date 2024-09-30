@@ -21,6 +21,7 @@ import axios from "axios";
 // ];
 
 const BlogPrd = () => {
+
   const [blogPrd,setBlogPrd] = useState([])
 
   useEffect(() => {
