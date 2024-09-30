@@ -12,6 +12,9 @@ import Contact from './pages/Contact';
 import BackHome from './pages/BackHome';
 import { useEffect } from 'react';
 import Aos from 'aos';
+import Blog from './pages/Blog';
+import ProductionBlogs from './pages/ProductionBlogs';
+import Gallery from './pages/Gallery';
 
 const App = () => {
   useEffect(() => {
@@ -49,6 +52,9 @@ const App = () => {
         <Route path="/ourPrdGrains" element={<OurPrdGrains />} />
         <Route path="/ourPrdSpices" element={<OurPrdSpices />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/productionBlogs" element={<ProductionBlogs />} />
+        <Route path="/gallery" element={<Gallery />} />
       </Routes>
       <Footer />
     </>

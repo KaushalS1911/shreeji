@@ -58,7 +58,7 @@ const FruitsPrd = () => {
               </Grid>
             ))}
           </Grid>
-          <Box sx={{ position: 'absolute', top: '-5%', left: '-2%', zIndex: -1, display: { sm: 'block', xs: 'none' } }}>
+          <Box sx={{ position: 'absolute', top: { md: '-5%', sm: '-3%' }, left: '-2%', zIndex: -1, display: { sm: 'block', xs: 'none' } }}>
             <Typography component={'img'} src={box} sx={{ width: { lg: '80%', md: '68%', xs: '53%' } }}></Typography>
           </Box>
         </Box>

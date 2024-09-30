@@ -14,15 +14,15 @@ import onionPowder from "../../assets/images/ourPrdSpices/onionPowder.png";
 
 
 const spices = [
-  { image: cuminSeeds, label: "Cumin seeds" },
-  { image: cuminPowder, label: "Cumin powder" },
-  { image: mustardSeeds, label: "Mustard Seeds" },
-  { image: caromSeeds, label: "Carom seeds" },
-  { image: turmericPowder, label: "Turmeric  powder" },
-  { image: redChilli, label: "Red Chilli Powder" },
-  { image: garlicPowder, label: "Garlic powder" },
-  { image: gingerPowder, label: "Ginger powder" },
-  { image: onionPowder, label: "Onion powder" },
+    { image: cuminSeeds, label: "Cumin seeds" },
+    { image: cuminPowder, label: "Cumin powder" },
+    { image: mustardSeeds, label: "Mustard Seeds" },
+    { image: caromSeeds, label: "Carom seeds" },
+    { image: turmericPowder, label: "Turmeric  powder" },
+    { image: redChilli, label: "Red Chilli Powder" },
+    { image: garlicPowder, label: "Garlic powder" },
+    { image: gingerPowder, label: "Ginger powder" },
+    { image: onionPowder, label: "Onion powder" },
 ];
 const SpicesPrd = () => {
   return (

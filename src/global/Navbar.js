@@ -16,6 +16,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Logo from '../assets/images/global/Logo.png';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import line from '../assets/images/global/navLines.png';
+import BookIcon from '@mui/icons-material/Book';
+import CollectionsIcon from '@mui/icons-material/Collections';
 
 const countries = [
     { code: 'AF', name: 'Afghanistan', flag: 'https://flagcdn.com/af.svg' },
@@ -266,8 +268,7 @@ const countries = [
 const Navbar = () => {
     const [selectedValue, setSelectedValue] = useState('IN');
     const [sidebarOpen, setSidebarOpen] = useState(false);
-    const [submenuOpen, setSubmenuOpen] = useState(false);
-    const [sidebarSubmenuOpen, setSidebarSubmenuOpen] = useState(false);
+    const [openSubmenu, setOpenSubmenu] = useState(null);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -275,23 +276,28 @@ const Navbar = () => {
         setSelectedValue(event.target.value);
     };
 
-    const isActiveRoute = (path) => location.pathname === path;
+    const isActiveRoute = (routes) => {
+        if (!Array.isArray(routes)) {
+            routes = [routes];
+        }
+        const currentPath = window.location.pathname;
+        return routes.some(route => route === '/' ? currentPath === route : currentPath.startsWith(route));
+    };
 
     const toggleSidebar = () => {
         setSidebarOpen(!sidebarOpen);
     };
 
-    const toggleSidebarSubmenu = () => {
-        setSidebarSubmenuOpen(!sidebarSubmenuOpen);
+    const handleSubmenuToggle = (submenu) => {
+        setOpenSubmenu(openSubmenu === submenu ? null : submenu);
     };
 
     const closeSubmenuAndNavigate = (path) => {
-        setSubmenuOpen(false);
+        setOpenSubmenu(null);
         navigate(path);
     };
 
     const closeSidebarAndNavigate = (path) => {
-        setSidebarSubmenuOpen(false);
         setSidebarOpen(false);
         navigate(path);
     };
@@ -378,23 +384,23 @@ const Navbar = () => {
                                 sx={getItemStyles(isActiveRoute('/'))}
                             >
                                 <Typography className='lines' component={'img'} src={line} sx={{ display: 'none', mr: 1 }}></Typography>
-                                <Typography className='navItem' >Home</Typography>
+                                <Typography className='navItem'>Home</Typography>
                             </MenuItem>
                             <MenuItem
                                 onClick={() => navigate('/about')}
                                 sx={getItemStyles(isActiveRoute('/about'))}
                             >
                                 <Typography className='lines' component={'img'} src={line} sx={{ display: 'none', mr: 1 }}></Typography>
-                                <Typography className='navItem' >About</Typography>
+                                <Typography className='navItem' >About Us</Typography>
                             </MenuItem>
                             <MenuItem
-                                onMouseEnter={() => setSubmenuOpen(true)}
-                                onMouseLeave={() => setSubmenuOpen(false)}
-                                sx={getItemStyles(isActiveRoute('/ourProducts'))}
+                                onMouseEnter={() => handleSubmenuToggle('products')}
+                                onMouseLeave={() => handleSubmenuToggle('products')}
+                                sx={getItemStyles(isActiveRoute(['/ourProducts', '/ourPrdFruits', '/ourPrdGrains', '/ourPrdSpices']))}
                             >
                                 <Typography className='lines' component={'img'} src={line} sx={{ display: 'none', mr: 1 }}></Typography>
-                                <Typography className='navItem' >Our Products</Typography>
-                                {submenuOpen && (
+                                <Typography className='navItem'>Our Products</Typography>
+                                {openSubmenu === 'products' && (
                                     <Box sx={{ position: 'absolute', p: 2, top: '100%', left: '-10%', zIndex: 111, backgroundColor: '#fff', boxShadow: 2 }}>
                                         <MenuItem onClick={() => closeSubmenuAndNavigate('/ourProducts')} sx={getSubmenuItemStyles(isActiveRoute('/ourProducts'))}>
                                             <Typography component={'img'} src={line} sx={{ mr: 1 }}></Typography>
@@ -416,90 +422,123 @@ const Navbar = () => {
                                 )}
                             </MenuItem>
                             <MenuItem
+                                onMouseEnter={() => handleSubmenuToggle('blog')}
+                                onMouseLeave={() => handleSubmenuToggle('blog')}
+                                sx={getItemStyles(isActiveRoute(['/blog', '/blog']))}
+                            >
+                                <Typography className='lines' component={'img'} src={line} sx={{ display: 'none', mr: 1 }}></Typography>
+                                <Typography className='navItem'>Blog</Typography>
+                                {openSubmenu === 'blog' && (
+                                    <Box sx={{ position: 'absolute', p: 2, top: '100%', left: '-35%', zIndex: 111, backgroundColor: '#fff', boxShadow: 2 }}>
+                                        <MenuItem onClick={() => closeSubmenuAndNavigate('/Blog')} sx={getSubmenuItemStyles(isActiveRoute('/Blog'))}>
+                                            <Typography component={'img'} src={line} sx={{ mr: 1 }}></Typography>
+                                            Blog
+                                        </MenuItem>
+                                        <MenuItem onClick={() => closeSubmenuAndNavigate('/productionBlogs')} sx={getSubmenuItemStyles(isActiveRoute('/productionBlogs'))}>
+                                            <Typography component={'img'} src={line} sx={{ mr: 1 }}></Typography>
+                                            Production Blogs
+                                        </MenuItem>
+                                    </Box>
+                                )}
+                            </MenuItem>
+                            <MenuItem
+                                onClick={() => navigate('/gallery')}
+                                sx={getItemStyles(isActiveRoute('/gallery'))}
+                            >
+                                <Typography className='lines' component={'img'} src={line} sx={{ display: 'none', mr: 1 }}></Typography>
+                                <Typography className='navItem'>Gallery</Typography>
+                            </MenuItem>
+                            <MenuItem
                                 onClick={() => navigate('/contact')}
                                 sx={getItemStyles(isActiveRoute('/contact'))}
                             >
                                 <Typography className='lines' component={'img'} src={line} sx={{ display: 'none', mr: 1 }}></Typography>
-                                <Typography className='navItem' >Contact Us</Typography>
+                                <Typography className='navItem'>Contact Us</Typography>
                             </MenuItem>
                         </Box>
-                        <Box sx={{ display: { sm: 'none', xs: 'flex' }, justifyContent: 'end', alignItems: 'center' }}>
-                            <IconButton onClick={toggleSidebar}>
+                        <Box sx={{ display: { sm: 'none', xs: 'flex' }, justifyContent: 'end' }}>
+                            <IconButton onClick={toggleSidebar} sx={{ color: '#294462' }}>
                                 <MenuIcon />
                             </IconButton>
                         </Box>
+
+                        <Drawer anchor='left' open={sidebarOpen} onClose={toggleSidebar}>
+                            <Box sx={{ width: 250, backgroundColor: '#294462', height: '100vh', color: '#fff' }}>
+                                <Box sx={{ display: 'flex', justifyContent: 'space-between', p: 2 }}>
+                                    <Typography component={'img'} src={Logo} sx={{ width: '30%' }}></Typography>
+                                    <IconButton onClick={toggleSidebar}>
+                                        <CloseIcon sx={{ color: '#fff' }} />
+                                    </IconButton>
+                                </Box>
+                                <Box sx={{ px: 2 }}>
+                                    <MenuItem onClick={() => closeSidebarAndNavigate('/')} sx={getSidebarItemStyles(isActiveRoute('/'))}>
+                                        <HomeIcon />
+                                        <Typography>Home</Typography>
+                                    </MenuItem>
+                                    <MenuItem onClick={() => closeSidebarAndNavigate('/about')} sx={getSidebarItemStyles(isActiveRoute('/about'))}>
+                                        <InfoIcon />
+                                        <Typography>About Us</Typography>
+                                    </MenuItem>
+                                    <MenuItem onClick={() => handleSubmenuToggle('products')} sx={getSidebarItemStyles(isActiveRoute('/ourProducts'))}>
+                                        <StorefrontIcon />
+                                        <Typography>Our Products</Typography>
+                                        <ExpandMoreIcon />
+                                    </MenuItem>
+                                    <Collapse in={openSubmenu === 'products'}>
+                                        <MenuItem onClick={() => closeSidebarAndNavigate('/ourProducts')} sx={getSidebarSubmenuItemStyles(isActiveRoute('/ourProducts'))}>
+                                            <ArrowRightIcon />
+                                            Our Products
+                                        </MenuItem>
+                                        <MenuItem onClick={() => closeSidebarAndNavigate('/ourPrdFruits')} sx={getSidebarSubmenuItemStyles(isActiveRoute('/ourPrdFruits'))}>
+                                            <ArrowRightIcon />
+                                            Our Products Fruits
+                                        </MenuItem>
+                                        <MenuItem onClick={() => closeSidebarAndNavigate('/ourPrdGrains')} sx={getSidebarSubmenuItemStyles(isActiveRoute('/ourPrdGrains'))}>
+                                            <ArrowRightIcon />
+                                            Our Products Grains
+                                        </MenuItem>
+                                        <MenuItem onClick={() => closeSidebarAndNavigate('/ourPrdSpices')} sx={getSidebarSubmenuItemStyles(isActiveRoute('/ourPrdSpices'))}>
+                                            <ArrowRightIcon />
+                                            Our Products Spices
+                                        </MenuItem>
+                                    </Collapse>
+                                    <MenuItem onClick={() => handleSubmenuToggle('blog')} sx={getSidebarItemStyles(isActiveRoute('/blog'))}>
+                                        <BookIcon />
+                                        <Typography>Blog</Typography>
+                                        <ExpandMoreIcon />
+                                    </MenuItem>
+                                    <Collapse in={openSubmenu === 'blog'}>
+                                        <MenuItem onClick={() => closeSidebarAndNavigate('/Blog')} sx={getSidebarSubmenuItemStyles(isActiveRoute('/Blog'))}>
+                                            <ArrowRightIcon />
+                                            Blog
+                                        </MenuItem>
+                                        <MenuItem onClick={() => closeSidebarAndNavigate('/productionBlogs')} sx={getSidebarSubmenuItemStyles(isActiveRoute('/productionBlogs'))}>
+                                            <ArrowRightIcon />
+                                            Production Blogs
+                                        </MenuItem>
+                                    </Collapse>
+                                    <MenuItem onClick={() => closeSidebarAndNavigate('/gallery')} sx={getSidebarItemStyles(isActiveRoute('/gallery'))}>
+                                        <CollectionsIcon />
+                                        <Typography>Gallery</Typography>
+                                    </MenuItem>
+                                    <MenuItem onClick={() => closeSidebarAndNavigate('/contact')} sx={getSidebarItemStyles(isActiveRoute('/contact'))}>
+                                        <ContactMailIcon />
+                                        <Typography>Contact Us</Typography>
+                                    </MenuItem>
+                                </Box>
+                            </Box>
+                        </Drawer>
                     </Box>
                 </Container>
             </Box>
-
-            <Drawer anchor="left" open={sidebarOpen} onClose={toggleSidebar}>
-                <Box sx={{
-                    width: 250,
-                    p: 2,
-                    backgroundColor: '#294462',
-                    color: '#fff',
-                    height: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    boxShadow: '2px 0 5px rgba(0,0,0,0.5)'
-                }} role="presentation">
-                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-                        <Typography component={'img'} src={Logo} width={'30%'} />
-                        <IconButton onClick={toggleSidebar} sx={{ color: '#fff' }}>
-                            <CloseIcon />
-                        </IconButton>
-                    </Box>
-
-                    {/* ==================== Sidebar Navigation Items ==================== */}
-                    <MenuItem onClick={() => { toggleSidebar(); navigate('/'); }} sx={getSidebarItemStyles(isActiveRoute('/'))}>
-                        <HomeIcon />
-                        <Typography>Home</Typography>
-                    </MenuItem>
-                    <MenuItem onClick={() => { toggleSidebar(); navigate('/about'); }} sx={getSidebarItemStyles(isActiveRoute('/about'))}>
-                        <InfoIcon />
-                        <Typography>About Us</Typography>
-                    </MenuItem>
-
-                    <MenuItem onClick={toggleSidebarSubmenu} sx={getSidebarItemStyles(isActiveRoute('/ourProducts'))}>
-                        <StorefrontIcon />
-                        <Typography>Our Products</Typography>
-                        <ExpandMoreIcon />
-                    </MenuItem>
-
-                    <Collapse in={sidebarSubmenuOpen}>
-                        <MenuItem onClick={() => closeSidebarAndNavigate('/ourProducts')} sx={getSidebarSubmenuItemStyles(isActiveRoute('/ourProducts'))}>
-                            <ArrowRightIcon />
-                            Our Products
-                        </MenuItem>
-                        <MenuItem onClick={() => closeSidebarAndNavigate('/ourPrdFruits')} sx={getSidebarSubmenuItemStyles(isActiveRoute('/ourPrdFruits'))}>
-                            <ArrowRightIcon />
-                            Our Products Fruits
-                        </MenuItem>
-                        <MenuItem onClick={() => closeSidebarAndNavigate('/ourPrdGrains')} sx={getSidebarSubmenuItemStyles(isActiveRoute('/ourPrdGrains'))}>
-                            <ArrowRightIcon />
-                            Our Products Grains
-                        </MenuItem>
-                        <MenuItem onClick={() => closeSidebarAndNavigate('/ourPrdSpices')} sx={getSidebarSubmenuItemStyles(isActiveRoute('/ourPrdSpices'))}>
-                            <ArrowRightIcon />
-                            Our Products Spices
-                        </MenuItem>
-                    </Collapse>
-
-                    <MenuItem onClick={() => { toggleSidebar(); navigate('/contact'); }} sx={getSidebarItemStyles(isActiveRoute('/contact'))}>
-                        <ContactMailIcon />
-                        <Typography>Contact Us</Typography>
-                    </MenuItem>
-                </Box>
-            </Drawer>
         </Box>
     );
 };
 
-
 const getItemStyles = (isActive) => ({
     position: 'relative',
     py: 2.5,
-    px: 4,
+    px: { md: 4, sm: 2 },
     color: '#A0A0A0',
     '&:hover': {
         color: '#19AED7',

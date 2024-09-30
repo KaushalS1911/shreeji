@@ -46,7 +46,7 @@ const Choose = () => {
                                     <Box>
                                         <Typography component={'img'}
                                             src={spice.img}
-                                            sx={{ width: '100%', height: { sm: 'auto', xs: '350px' } }}
+                                            sx={{ width: '100%', objectFit: 'cover', height: { sm: 'auto', xs: '350px' } }}
                                             alt={spice.label}
                                         />
                                     </Box>
