@@ -18,6 +18,7 @@ import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import line from '../assets/images/global/navLines.png';
 import BookIcon from '@mui/icons-material/Book';
 import CollectionsIcon from '@mui/icons-material/Collections';
+import navLogo from '../assets/images/global/navLogo.png'
 
 const countries = [
     { code: 'AF', name: 'Afghanistan', flag: 'https://flagcdn.com/af.svg' },
@@ -378,7 +379,14 @@ const Navbar = () => {
             <Box sx={{ backgroundColor: '#fff' }}>
                 <Container>
                     <Box>
-                        <Box sx={{ display: { sm: 'flex', xs: 'none' }, justifyContent: 'center' }}>
+                        <Box sx={{ display: { sm: 'flex', xs: 'none' }, justifyContent: 'center' ,alignItems:"center"}}>
+                            <Box >
+                                <Box>
+                                    <Box sx={{display:"flex",alignItems:"center",justifyContent:"center",height:"100%"}} width={{xl: "116px",lg:"100px",sm:"90px"}} mr={5}>
+                                    <img src={navLogo} alt="logo" height={"100%"} width={'100%'}/>
+                                    </Box>
+                                </Box>
+                            </Box>
                             <MenuItem
                                 onClick={() => navigate('/')}
                                 sx={getItemStyles(isActiveRoute('/'))}
