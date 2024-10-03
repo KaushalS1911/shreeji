@@ -7,7 +7,7 @@ const ProductionBlogs = () => {
     return (
         <>
             <ProductionBlogsDec />
-            <ProductionBlogsDetail />
+            {/*<ProductionBlogsDetail />*/}
             <ProductionBlogText />
         </>
     )

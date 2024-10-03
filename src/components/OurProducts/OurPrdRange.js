@@ -36,7 +36,7 @@ const OurPrdRange = () => {
                             <Typography component={'img'} src={ourPrdTwoLines} sx={{ mr: 1 }}></Typography>
                             Explore Our Full Product Range
                         </Typography>
-                        <Typography sx={{ color: '#6F6F6F', fontWeight: 500, display: 'flex', justifyContent: 'center', fontSize: { md: '26px', md: '20px', xs: '12px' }, mt: 2 }}>“How We Ensure Quality from Farm to Market”</Typography>
+                        <Typography sx={{ color: '#6F6F6F', fontWeight: 500, display: 'flex', justifyContent: 'center', fontSize: { md: '26px', sm: '20px', xs: '12px' }, mt: 2 }}>“How We Ensure Quality from Farm to Market”</Typography>
                     </Box>
                 </Box>
                 <Grid container sx={{ px: { md: 13, sm: 10, xs: 2 } }} spacing={{ md:10, xs: 5}}>

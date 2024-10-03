@@ -1,24 +1,56 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
-import React from "react";
+import {Box, CircularProgress, Container, Grid, Typography} from "@mui/material";
+import React, {useEffect, useState} from "react";
 import box from "../../assets/images/ourPrdGrains/box.png";
 import line from "../../assets/images/ourPrdGrains/line.png";
-import rice from "../../assets/images/ourPrdGrains/rice.png";
-import millet from "../../assets/images/ourPrdGrains/millet.png";
-import chickpeas from "../../assets/images/ourPrdGrains/chickpeas.png";
-import mung from "../../assets/images/ourPrdGrains/mung.png";
-import soya from "../../assets/images/ourPrdGrains/soya.png";
-import kidney from "../../assets/images/ourPrdGrains/kidney.png";
+import {useNavigate} from "react-router-dom";
+import axios from "axios";
 
 
-const spices = [
-  { image: rice, label: "Rice" },
-  { image: millet, label: "Millet" },
-  { image: chickpeas, label: "Chickpeas" },
-  { image: mung, label: "Mung beans" },
-  { image: soya, label: "Soya bens" },
-  { image: kidney, label: "kidney beans" },
-];
 const GrainsPrd = () => {
+
+  const navigate = useNavigate();
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get('https://shreeji-be.onrender.com/api/product?type=Grains');
+
+        console.log('API Response:', response.data); // Log the API response
+
+        // Assuming response.data is an object, check if it has a products array
+
+        setProducts(response.data.data); // Adjust according to actual data structure
+
+      } catch (err) {
+        console.error('Error fetching products:', err); // Log error for debugging
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  if (loading) {
+    return (
+        <Container>
+          <CircularProgress/>
+        </Container>
+    );
+  }
+
+  if (error) {
+    return (
+        <Container>
+          <Typography color="error">{error}</Typography>
+        </Container>
+    );
+  }
+
   return (
     <>
       <Box sx={{ mt: { md: 15, sm: 10, xs: 5 } }}>
@@ -31,28 +63,34 @@ const GrainsPrd = () => {
               </Typography>
             </Box>
             <Grid container spacing={5}>
-              {spices.map((spices, index) => (
-                <Grid item md={4} sm={6} xs={12} key={index}>
-                  <Box sx={{ position: 'relative' }}>
-                    <Typography component={'img'} src={spices.image} sx={{ width: '100%' }}></Typography>
-                    <Typography sx={{
-                      position: 'absolute',
-                      top: '10%',
-                      width: '85%',
-                      backgroundColor: '#fff',
-                      boxShadow: 1,
-                      display: 'flex',
-                      justifyContent: 'center',
-                      color: '#555555',
-                      fontWeight: 600,
-                      py: 2,
-                      fontSize: '22px',
-                      left: { sm: '-6%', xs: '-3%' }
-                    }}>
-                      {spices.label}
-                    </Typography>
-                  </Box>
-                </Grid>
+              {products.map((blogPrd, index) => (
+                  <Grid item md={4} sm={6} xs={12} key={index}>
+                    <Box sx={{position: 'relative'}}>
+                      <Typography component={'img'} src={blogPrd.image} sx={{
+                        width: '100%',
+                        objectFit: 'cover',
+                        height: {sm: '300px', xs: '300px'}
+                      }}></Typography>
+                      <Typography sx={{
+                        position: 'absolute',
+                        bottom: '10%',
+                        width: '80%',
+                        backgroundColor: '#fff',
+                        boxShadow: 1,
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        color: '#555555',
+                        fontWeight: 600,
+                        py: 3,
+                        px: 3,
+                        fontSize: {sm: '16px', xs: '14px'},
+                        left: {sm: '-6%', xs: '-3%'}
+                      }}>
+                        {blogPrd.title}
+                      </Typography>
+                    </Box>
+                  </Grid>
               ))}
             </Grid>
             <Box sx={{ position: 'absolute', top: '-5%', left: '-2%', zIndex: -1, display: { sm: 'block', xs: 'none' } }}>

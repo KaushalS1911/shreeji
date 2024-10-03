@@ -427,19 +427,7 @@ const Navbar = () => {
                                 sx={getItemStyles(isActiveRoute(['/blog', '/blog']))}
                             >
                                 <Typography className='lines' component={'img'} src={line} sx={{ display: 'none', mr: 1 }}></Typography>
-                                <Typography className='navItem'>Blog</Typography>
-                                {openSubmenu === 'blog' && (
-                                    <Box sx={{ position: 'absolute', p: 2, top: '100%', left: '-35%', zIndex: 111, backgroundColor: '#fff', boxShadow: 2 }}>
-                                        <MenuItem onClick={() => closeSubmenuAndNavigate('/Blog')} sx={getSubmenuItemStyles(isActiveRoute('/Blog'))}>
-                                            <Typography component={'img'} src={line} sx={{ mr: 1 }}></Typography>
-                                            Blog
-                                        </MenuItem>
-                                        <MenuItem onClick={() => closeSubmenuAndNavigate('/productionBlogs')} sx={getSubmenuItemStyles(isActiveRoute('/productionBlogs'))}>
-                                            <Typography component={'img'} src={line} sx={{ mr: 1 }}></Typography>
-                                            Production Blogs
-                                        </MenuItem>
-                                    </Box>
-                                )}
+                                <Typography className='navItem' onClick={() => closeSubmenuAndNavigate('/Blog')} sx={getSubmenuItemStyles(isActiveRoute('/Blog'))}>Blog</Typography>
                             </MenuItem>
                             <MenuItem
                                 onClick={() => navigate('/gallery')}
