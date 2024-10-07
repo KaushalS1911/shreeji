@@ -5,15 +5,17 @@ import bgLightBlue from '../../assets/images/home/bgLightBlue.png'
 import fruites from '../../assets/images/home/fruites.webp'
 import grains from '../../assets/images/home/grains.webp'
 import spices from '../../assets/images/home/spices.webp'
+import {useNavigate} from 'react-router-dom'
 
 const products = [
-    { image: fruites, label: ['Fresh Fruits &', <br />, 'Vegetables'], labelPadding: 2 },
-    { image: grains, label: ['Organic Grains', <br />, '& Pulses'], labelPadding: 2 },
-    { image: spices, label: ['Spices'], labelPadding: 3.5 }
+    { image: fruites, label: ['Fresh Fruits &', <br />, 'Vegetables'], labelPadding: 2,to: "/ourPrdFruits" },
+    { image: grains, label: ['Organic Grains', <br />, '& Pulses'], labelPadding: 2 ,to: "/ourPrdGrains"},
+    { image: spices, label: ['Spices'], labelPadding: 3.5,to: "/ourPrdSpices" }
 ];
 
 
 const HomePrd = () => {
+    const navigate = useNavigate();
     return (
         <>
             <Box sx={{ mt: { lg: 15, md: 5 } }}>
@@ -21,15 +23,15 @@ const HomePrd = () => {
                     <Box sx={{ position: 'relative' }}>
                         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mb: { md: 10, xs: 5 } }}>
                             <Typography sx={{ fontWeight: 600, fontSize: { lg: '40px', md: '34px', sm: '24px', xs: '28px' }, alignItems: 'center', display: 'flex' }}>
-                                <Typography component={'img'} src={homeTwoLines} width={'8%'} sx={{ mr: 1 }}></Typography>
+                                <Typography component={'img'} src={homeTwoLines} width={'8%'} sx={{ mr: 1 }} />
                                 Our Products
                             </Typography>
                         </Box>
                         <Grid container spacing={5}>
                             {products.map((product, index) => (
                                 <Grid item sm={4} xs={12} key={index}>
-                                    <Box sx={{ position: 'relative' }}>
-                                        <Typography component={'img'} src={product.image} sx={{ width: '100%', objectFit: 'cover', height: { sm: 'auto', xs: '350px' } }}></Typography>
+                                    <Box sx={{ position: 'relative' ,cursor:"pointer"}} onClick={() => navigate(`${product.to}`)}>
+                                        <Typography component={'img'} src={product.image} sx={{ width: '100%', objectFit: 'cover', height: { sm: 'auto', xs: '350px' } }} />
                                         <Typography sx={{
                                             position: 'absolute',
                                             bottom: '5%',
