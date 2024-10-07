@@ -39,7 +39,7 @@ const Sustainability = () => {
                                     </Box>
                                 </Box>
                                 <Typography sx={{ color: '#7D7D7D', display: 'flex', justifyContent: 'center', fontSize: { lg: '16px', md: '12px', sm: '10px', xs: '12px' }, py: 3, ml: 6 }}>
-                                    “LUNEX INTERNATIONAL has been a trusted name in the agricultural export sector for [X] years. Based in [Location],
+                                    “LUNEX INTERNATIONAL has been a trusted name in the agricultural export sector for 4 years. Based in Surat,
                                     we specialize in providing a wide range of agricultural products to international markets, ensuring freshness,
                                     quality, and compliance with global food standards.”
                                 </Typography>

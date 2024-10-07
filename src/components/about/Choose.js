@@ -12,7 +12,7 @@ import C4 from '../../assets/images/about/Choose4.webp'
 
 const spices = [
     { img: C1, label: 'Quality Assurance', con: ['Strict quality control at', <br />, 'every stage.'] },
-    { img: C2, label: 'Global Reach', con: 'Exporting to over [X] countries.' },
+    { img: C2, label: 'Global Reach', con: 'Exporting to over 7 countries.' },
     { img: C3, label: 'Sustainability Focus', con: ['Eco-friendly and sustainable farming', <br />, ' practices.'] },
     { img: C4, label: 'Customer Satisfaction', con: ['Personalized service and', <br />, ' timely deliveries.'] },
 ];
