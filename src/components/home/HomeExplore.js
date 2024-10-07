@@ -1,8 +1,8 @@
 import { Box, Button, Container, Grid, Typography } from '@mui/material'
 import React from 'react'
 import homeTwoLinesBig from '../../assets/images/home/homeTwoLinesBig.png'
-import containers from '../../assets/images/home/containers.png'
-import containersPeople from '../../assets/images/home/containersPeople.png'
+import containers from '../../assets/images/home/containers.webp'
+import containersPeople from '../../assets/images/home/containersPeople.webp'
 
 const HomeExplore = () => {
     return (

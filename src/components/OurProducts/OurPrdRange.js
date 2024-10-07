@@ -1,26 +1,29 @@
 import { Box, Container, Grid, Typography } from '@mui/material';
 import React from 'react';
-import ourPrdSourcing from '../../assets/images/ourProducts/ourPrdSourcing.png';
+import Sourcing from '../../assets/images/ourProducts/Sourcing.webp';
+import Quality from '../../assets/images/ourProducts/Quality.webp';
+import Logistics from '../../assets/images/ourProducts/Logistics.webp';
+import Certifications from '../../assets/images/ourProducts/Certifications.webp';
 import ourPrdTwoLines from '../../assets/images/ourProducts/ourPrdTwoLines.png'
 
 const productData = [
     {
-        image: ourPrdSourcing,
+        image: Sourcing,
         label: 'Sourcing',
         description: '“We partner with local farmers who use sustainable practices to grow high-quality, organic crops.”'
     },
     {
-        image: ourPrdSourcing,
+        image: Quality,
         label: 'Quality Control',
         description: '“From harvest to packaging, every product undergoes rigorous quality checks to ensure freshness and compliance with international standards.”'
     },
     {
-        image: ourPrdSourcing,
+        image: Logistics,
         label: 'Logistics',
         description: '“With a robust global logistics network, we ensure timely delivery to your location, no matter where you are.”'
     },
     {
-        image: ourPrdSourcing,
+        image: Certifications,
         label: 'Certifications',
         description: '“We are certified by ISO, HACCP, USDA Organic, ensuring that every product meets the highest global standards.”'
     },

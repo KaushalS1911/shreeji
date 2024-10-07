@@ -2,17 +2,21 @@ import { Box, Button, Container, Grid, Typography } from '@mui/material'
 import React from 'react'
 import ourPrdTwoLines from '../../assets/images/ourProducts/ourPrdTwoLines.png'
 import bgLightBlue from '../../assets/images/ourProducts/bgLightBlue.png'
-import fruites from '../../assets/images/ourProducts/ourPrdFruites.png'
-import grains from '../../assets/images/ourProducts/ourPrdGrains.png'
-import spices from '../../assets/images/ourProducts/ourPrdSpices.png'
+import fruites from '../../assets/images/ourProducts/ourPrdFruites.webp'
+import grains from '../../assets/images/ourProducts/ourPrdGrains.webp'
+import spices from '../../assets/images/ourProducts/ourPrdSpices.webp'
+import { useNavigate } from 'react-router-dom'
 
 const products = [
-    { image: fruites, label: ['Fresh Fruits &', <br />, 'Vegetables'], labelPadding: 2 },
-    { image: grains, label: ['Organic Grains', <br />, '& Pulses'], labelPadding: 2 },
-    { image: spices, label: ['Spices'], labelPadding: 3.5 }
+    { image: fruites, label: ['Fresh Fruits &', <br />, 'Vegetables'], labelPadding: 2, path: '/ourPrdFruits' },
+    { image: grains, label: ['Organic Grains', <br />, '& Pulses'], labelPadding: 2, path: '/ourPrdGrains' },
+    { image: spices, label: ['Spices'], labelPadding: 3.5, path: '/ourPrdSpices' }
 ];
 
 const OurPrdItems = () => {
+
+    const navigate = useNavigate();
+
     return (
         <>
             <Box sx={{ mt: { md: 15, xs: 10 } }}>
@@ -27,7 +31,7 @@ const OurPrdItems = () => {
                         <Grid container spacing={5}>
                             {products.map((product, index) => (
                                 <Grid item sm={4} xs={12} key={index}>
-                                    <Box sx={{ position: 'relative' }}>
+                                    <Box onClick={() => navigate(product.path)} sx={{ position: 'relative' }}>
                                         <Typography component={'img'} src={product.image} sx={{ width: '100%', objectFit: 'cover', height: { sm: 'auto', xs: '350px' } }}></Typography>
                                         <Typography sx={{
                                             position: 'absolute',

@@ -169,11 +169,11 @@ const ContactInquiry = () => {
                                             </Box>
                                         </Grid>
 
-                                        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
+                                        <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%', mt: 4}}>
                                             <Button
                                                 type="submit"
                                                 disabled={loading}
-                                                sx={{ backgroundColor: '#19AED7', color: '#FFF', borderRadius: 0, p: 1, textTransform: 'unset' }}
+                                                sx={{ backgroundColor: '#19AED7', color: '#FFF', borderRadius: 0, p: 1, textTransform: 'unset', }}
                                             >
                                                 {loading ? "Sending..." : "Submit Interest"}
                                             </Button>

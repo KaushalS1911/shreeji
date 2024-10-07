@@ -2,8 +2,8 @@ import { Box, Button, Container, Grid, Typography } from '@mui/material'
 import React from 'react'
 
 import Line from '../../assets/images/about/Line2.png'
-import I1 from '../../assets/images/about/img1.png'
-import I2 from '../../assets/images/about/img2.png'
+import I1 from '../../assets/images/about/img1.webp'
+import I2 from '../../assets/images/about/img2.webp'
 
 const Sustainability = () => {
     return (

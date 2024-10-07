@@ -75,7 +75,7 @@ const Footer = () => {
                                             flexDirection: { xs: 'column', sm: 'row' },
                                         }}
                                     >
-                                        <Input fullWidth placeholder="   Your Email ID" sx={{ borderRadius: '0px', border: 'none', backgroundColor: '#F9F9F9', py: { xs: 1, md: 2 } }} />
+                                        <Input fullWidth placeholder="Your Email ID" sx={{ borderRadius: '0px', border: 'none', backgroundColor: '#F9F9F9', py: { xs: 1, md: 2 }, ":hover": { outline: 'none' } }} />
                                         <Button sx={{ backgroundColor: '#19AED7', color: '#FFF', borderRadius: 0, py: { xs: 1, md: 2 }, px: 4, textTransform: 'unset' }}>
                                             Subscribe
                                         </Button>
@@ -127,7 +127,7 @@ const Footer = () => {
                             </Typography>
 
                             <Box sx={{ mb: { xs: 2, sm: 0 }, width: { xs: '20%', sm: '10%', md: 'auto' } }}>
-                                <img src={Logo} style={{ width: '100%', height: 'auto' }} alt="Logo" />
+                                <img onClick={() => navigate('/')} src={Logo} style={{ width: '100%', height: 'auto', cursor: 'pointer' }} alt="Logo" />
                             </Box>
 
                             <Typography
@@ -174,10 +174,10 @@ const Footer = () => {
 
                             <Grid item xs={12} sm={4}>
                                 <Box sx={{ display: 'flex', justifyContent: { xs: 'center', sm: 'center' }, alignItems: 'center' }}>
-                                    <Box sx={{ color: '#C6E7ED', mx: '10px', cursor: 'pointer' }}><TwitterIcon /></Box>
-                                    <Box sx={{ color: '#C6E7ED', mx: '10px', cursor: 'pointer' }}><InstagramIcon /></Box>
-                                    <Box sx={{ color: '#C6E7ED', mx: '10px', cursor: 'pointer' }}><LinkedInIcon /></Box>
-                                    <Box sx={{ color: '#C6E7ED', mx: '10px', cursor: 'pointer' }}><FacebookIcon /></Box>
+                                    <Typography component={'a'} href='' sx={{ color: '#C6E7ED', mx: '10px', cursor: 'pointer' }}><TwitterIcon /></Typography>
+                                    <Typography component={'a'} href='https://www.instagram.com/lunex_international?igsh=aDRybjJpenNnc2hu' sx={{ color: '#C6E7ED', mx: '10px', cursor: 'pointer' }}><InstagramIcon /></Typography>
+                                    <Typography component={'a'} href='' sx={{ color: '#C6E7ED', mx: '10px', cursor: 'pointer' }}><LinkedInIcon /></Typography>
+                                    <Typography component={'a'} href='https://www.facebook.com/profile.php?id=100044373251632' sx={{ color: '#C6E7ED', mx: '10px', cursor: 'pointer' }}><FacebookIcon /></Typography>
                                 </Box>
                             </Grid>
 

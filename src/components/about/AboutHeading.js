@@ -2,7 +2,7 @@ import { Box, Container, Typography } from '@mui/material'
 import React from 'react'
 
 import Line from '../../assets/images/about/Line.png'
-import BG from '../../assets/images/about/bg.png'
+import BG from '../../assets/images/about/bg.webp'
 import { useNavigate } from 'react-router-dom'
 
 const AboutHeading = () => {

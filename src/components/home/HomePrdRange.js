@@ -1,11 +1,11 @@
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
 import React from 'react';
 import homeTwoLines from '../../assets/images/home/homeTwoLines.png';
-import Sourcing from '../../assets/images/home/Sourcing.png';
-import Quality from '../../assets/images/home/Quality.png';
-import Logistics from '../../assets/images/home/Logistics.png';
-import Certifications from '../../assets/images/home/Certifications.png';
-import Sustainability from '../../assets/images/home/Sustainability.png';
+import Sourcing from '../../assets/images/home/Sourcing.webp';
+import Quality from '../../assets/images/home/Quality.webp';
+import Logistics from '../../assets/images/home/Logistics.webp';
+import Certifications from '../../assets/images/home/Certifications.webp';
+import Sustainability from '../../assets/images/home/Sustainability.webp';
 
 const productRange = [
     { image: Sourcing, label: 'Sourcing' },
@@ -48,25 +48,6 @@ const HomePrdRange = () => {
                                     >
                                         {product.label}
                                     </Typography>
-                                    <Button
-                                        sx={{
-                                            position: 'absolute',
-                                            borderRadius: '0',
-                                            bottom: '8%',
-                                            color: '#fff',
-                                            boxShadow: 1,
-                                            display: 'flex',
-                                            justifyContent: 'center',
-                                            backgroundColor: '#19AED7',
-                                            textTransform: 'unset',
-                                            py: 0.5,
-                                            px: 3,
-                                            fontWeight: 600,
-                                            right: { sm: '-6%', xs: '-3%' }
-                                        }}
-                                    >
-                                        Read More
-                                    </Button>
                                 </Box>
                             </Grid>
                         ))}

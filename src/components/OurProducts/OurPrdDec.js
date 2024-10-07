@@ -1,7 +1,7 @@
 import { Box, Container, Typography } from '@mui/material'
 import React from 'react'
 import twolines from '../../assets/images/ourProducts/ourPrdTwoLines.png'
-import ourPrdBg from '../../assets/images/ourProducts/ourPrdBg.png'
+import ourPrdBg from '../../assets/images/ourProducts/ourPrdBg.webp'
 import { useNavigate } from 'react-router-dom'
 
 const OurPrdDec = () => {

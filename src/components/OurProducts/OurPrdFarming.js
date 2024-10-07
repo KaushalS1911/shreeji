@@ -1,11 +1,15 @@
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
 import React from 'react';
 import ourPrdTwoLines from '../../assets/images/ourProducts/ourPrdTwoLines.png';
-import ourPrdfarmers from '../../assets/images/ourProducts/ourPrdfarmers.png';
-import ourPrdWater from '../../assets/images/ourProducts/ourPrdWater.png';
+import ourPrdfarmers from '../../assets/images/ourProducts/ourPrdfarmers.webp';
+import ourPrdWater from '../../assets/images/ourProducts/ourPrdWater.webp';
+import ourPrdfarmers2 from '../../assets/images/ourProducts/ourPrdfarmers2.webp';
+import ourPrdWater2 from '../../assets/images/ourProducts/ourPrdWater2.webp';
 
 const content = [
     {
+        smImg: ourPrdfarmers,
+        bigImg: ourPrdWater,
         title: '"Committed to a Greener Future"',
         description: 'As stewards of the environment, we are dedicated to promoting sustainable farming practices. From reducing water usage to minimizing waste, we work with farmers who prioritize eco-friendly techniques.',
         buttonText: 'Key Practices:',
@@ -16,6 +20,8 @@ const content = [
         ]
     },
     {
+        smImg: ourPrdfarmers2,
+        bigImg: ourPrdWater2,
         title: '"Partner with Us for Reliable, High-Quality Agricultural Exports"',
         description: 'We work with importers, distributors, and retailers globally. Our commitment to quality and service has made us the preferred choice for businesses around the world.',
         buttonText: 'Benefits of Partnering:',
@@ -67,10 +73,10 @@ const OurPrdFarming = () => {
                                             <Grid item xs={12} sm={5}>
                                                 <Box sx={{ position: 'relative' }}>
                                                     <Box sx={{ display: 'flex', justifyContent: 'end' }}>
-                                                        <img src={ourPrdfarmers} width={'80%'} />
+                                                        <img src={section.smImg} width={'80%'} />
                                                     </Box>
                                                     <Box sx={{ position: 'absolute', bottom: '2%', left: '5%' }}>
-                                                        <Typography component={'img'} src={ourPrdWater} sx={{ width: { lg: '80%', md: '70%', sm: '50%', xs: '60%' } }} />
+                                                        <Typography component={'img'} src={section.bigImg} sx={{ width: { lg: '80%', md: '70%', sm: '50%', xs: '60%' } }} />
                                                     </Box>
                                                 </Box>
                                             </Grid>
@@ -154,10 +160,10 @@ const OurPrdFarming = () => {
                                             <Grid item xs={12} sm={5}>
                                                 <Box sx={{ position: 'relative' }}>
                                                     <Box sx={{ display: 'flex', justifyContent: 'end' }}>
-                                                        <img src={ourPrdfarmers} width={'80%'} />
+                                                        <img src={section.smImg} width={'80%'} />
                                                     </Box>
                                                     <Box sx={{ position: 'absolute', bottom: '2%', left: '5%' }}>
-                                                        <Typography component={'img'} src={ourPrdWater} sx={{ width: { lg: '80%', md: '70%', sm: '50%', xs: '60%' } }} />
+                                                        <Typography component={'img'} src={section.bigImg} sx={{ width: { lg: '80%', md: '70%', sm: '50%', xs: '60%' } }} />
                                                     </Box>
                                                 </Box>
                                             </Grid>

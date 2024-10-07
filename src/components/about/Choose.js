@@ -5,10 +5,10 @@ import React from 'react';
 import Blue from '../../assets/images/about/Blue.png'
 import BlueSmall from '../../assets/images/about/Bluesmall.png'
 import textLine from '../../assets/images/about/txtLine.png'
-import C1 from '../../assets/images/about/Choose1.png'
-import C2 from '../../assets/images/about/Choose2.png'
-import C3 from '../../assets/images/about/Choose3.png'
-import C4 from '../../assets/images/about/Choose4.png'
+import C1 from '../../assets/images/about/Choose1.webp'
+import C2 from '../../assets/images/about/Choose2.webp'
+import C3 from '../../assets/images/about/Choose3.webp'
+import C4 from '../../assets/images/about/Choose4.webp'
 
 const spices = [
     { img: C1, label: 'Quality Assurance', con: ['Strict quality control at', <br />, 'every stage.'] },

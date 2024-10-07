@@ -2,9 +2,9 @@ import { Box, Container, Grid, Typography } from '@mui/material'
 import React from 'react'
 import homeTwoLines from '../../assets/images/home/homeTwoLines.png'
 import bgLightBlue from '../../assets/images/home/bgLightBlue.png'
-import fruites from '../../assets/images/home/fruites.png'
-import grains from '../../assets/images/home/grains.png'
-import spices from '../../assets/images/home/spices.png'
+import fruites from '../../assets/images/home/fruites.webp'
+import grains from '../../assets/images/home/grains.webp'
+import spices from '../../assets/images/home/spices.webp'
 
 const products = [
     { image: fruites, label: ['Fresh Fruits &', <br />, 'Vegetables'], labelPadding: 2 },
