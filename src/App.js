@@ -15,6 +15,7 @@ import Aos from 'aos';
 import Blog from './pages/Blog';
 import ProductionBlogs from './pages/ProductionBlogs';
 import Gallery from './pages/Gallery';
+import PrdInfo from "./pages/PrdInfo";
 
 const App = () => {
   useEffect(() => {
@@ -55,6 +56,7 @@ const App = () => {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:blogId" element={<ProductionBlogs />} />
         <Route path="/gallery" element={<Gallery />} />
+        <Route path="/productInfo/:id" element={<PrdInfo />} />
       </Routes>
       <Footer />
     </>

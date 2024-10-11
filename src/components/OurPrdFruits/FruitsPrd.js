@@ -64,7 +64,7 @@ const FruitsPrd = () => {
                     <Grid container spacing={5}>
                         {products.map((blogPrd, index) => (
                             <Grid item md={4} sm={6} xs={12} key={index}>
-                                <Box sx={{position: 'relative'}}>
+                                <Box sx={{ position: 'relative', cursor: "pointer" }} onClick={() => navigate(`/productInfo/${blogPrd._id}`)}>
                                     <Typography component={'img'} src={blogPrd.image} sx={{
                                         width: '100%',
                                         objectFit: 'cover',

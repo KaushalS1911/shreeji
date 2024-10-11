@@ -412,10 +412,11 @@ const Navbar = () => {
                             <MenuItem
                                 onMouseEnter={() => handleSubmenuToggle('products')}
                                 onMouseLeave={() => handleSubmenuToggle('products')}
+                                onClick={() => closeSubmenuAndNavigate('/ourProducts')}
                                 sx={getItemStyles(isActiveRoute(['/ourProducts', '/ourPrdFruits', '/ourPrdGrains', '/ourPrdSpices']))}
                             >
                                 <Typography className='lines' component={'img'} src={line} sx={{ display: 'none', mr: 1 }}></Typography>
-                                <Typography className='navItem' onClick={() => closeSubmenuAndNavigate('/ourProducts')}>Our Products</Typography>
+                                <Typography className='navItem' >Our Products</Typography>
                                 {openSubmenu === 'products' && (
                                     <Box sx={{ position: 'absolute', p: 2, top: '100%', left: '0.5%', zIndex: 111, backgroundColor: '#fff', boxShadow: 2 }}>
                                         <MenuItem style={{ fontSize: '14px' }} onClick={() => closeSubmenuAndNavigate('/ourPrdFruits')} sx={getSubmenuItemStyles(isActiveRoute('/ourPrdFruits'))}>
