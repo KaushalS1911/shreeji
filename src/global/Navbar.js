@@ -180,7 +180,7 @@ const Navbar = () => {
                     </Box>
                 </Container>
             </Box>
-            <Box sx={{backgroundColor: '#fff', py: {sm: 0, xs: 1}}}>
+            <Box sx={{backgroundColor: '#fff', py: 1}}>
                 <Container>
                     <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
                         <Box sx={{display: 'flex', alignItems: 'center'}}>
@@ -212,10 +212,10 @@ const Navbar = () => {
                             <MenuItem
                                 onMouseEnter={() => handleSubmenuToggle('products')}
                                 onMouseLeave={() => handleSubmenuToggle('products')}
-                                sx={getItemStyles(isActiveRoute(['/ourProducts', '/ourPrdFruits', '/ourPrdGrains', '/ourPrdSpices']))}
+                                sx={getItemStyles(isActiveRoute(['/our-products', '/our-prd-fruits', '/our-prd-grains', '/our-prd-spices']))}
                             >
                                 <Typography className='lines' component={'img'} src={line} sx={{display: 'none', mr: 1}} />
-                                <Typography className='navItem' onClick={() => closeSubmenuAndNavigate('/ourProducts')}>Our Products</Typography>
+                                <Typography className='navItem' onClick={() => closeSubmenuAndNavigate('/our-products')}>Our Products</Typography>
                                 {openSubmenu === 'products' && (
                                     <Box sx={{
                                         position: 'absolute',
@@ -227,22 +227,22 @@ const Navbar = () => {
                                         boxShadow: 2
                                     }}>
                                         <MenuItem style={{fontSize: '14px'}}
-                                                  onClick={() => closeSubmenuAndNavigate('/ourPrdFruits')}
-                                                  sx={getSubmenuItemStyles(isActiveRoute('/ourPrdFruits'))}>
+                                                  onClick={() => closeSubmenuAndNavigate('/our-prd-fruits')}
+                                                  sx={getSubmenuItemStyles(isActiveRoute('/our-prd-fruits'))}>
                                             <Typography component={'img'} src={line}
                                                         sx={{mr: 1, width: '10px'}}></Typography>
                                             Fruits
                                         </MenuItem>
                                         <MenuItem style={{fontSize: '14px'}}
-                                                  onClick={() => closeSubmenuAndNavigate('/ourPrdGrains')}
-                                                  sx={getSubmenuItemStyles(isActiveRoute('/ourPrdGrains'))}>
+                                                  onClick={() => closeSubmenuAndNavigate('/our-prd-grains')}
+                                                  sx={getSubmenuItemStyles(isActiveRoute('/our-prd-grains'))}>
                                             <Typography component={'img'} src={line}
                                                         sx={{mr: 1, width: '10px'}}></Typography>
                                             Grains
                                         </MenuItem>
                                         <MenuItem style={{fontSize: '14px'}}
-                                                  onClick={() => closeSubmenuAndNavigate('/ourPrdSpices')}
-                                                  sx={getSubmenuItemStyles(isActiveRoute('/ourPrdSpices'))}>
+                                                  onClick={() => closeSubmenuAndNavigate('/our-prd-spices')}
+                                                  sx={getSubmenuItemStyles(isActiveRoute('/our-prd-spices'))}>
                                             <Typography component={'img'} src={line}
                                                         sx={{mr: 1, width: '10px'}}></Typography>
                                             Spices
@@ -301,25 +301,25 @@ const Navbar = () => {
                                         <Typography>About Us</Typography>
                                     </MenuItem>
                                     <MenuItem onClick={() => handleSubmenuToggle('products')}
-                                              sx={getSidebarItemStyles(isActiveRoute('/ourProducts'))}>
+                                              sx={getSidebarItemStyles(isActiveRoute('/our-products'))}>
                                         <StorefrontIcon/>
-                                        <Typography onClick={() => closeSidebarAndNavigate('/ourProducts')}>Our
+                                        <Typography onClick={() => closeSidebarAndNavigate('/our-products')}>Our
                                             Products</Typography>
                                         <ExpandMoreIcon/>
                                     </MenuItem>
                                     <Collapse in={openSubmenu === 'products'}>
-                                        <MenuItem onClick={() => closeSidebarAndNavigate('/ourPrdFruits')}
-                                                  sx={getSidebarSubmenuItemStyles(isActiveRoute('/ourPrdFruits'))}>
+                                        <MenuItem onClick={() => closeSidebarAndNavigate('/our-prd-fruits')}
+                                                  sx={getSidebarSubmenuItemStyles(isActiveRoute('/our-prd-fruits'))}>
                                             <ArrowRightIcon/>
                                             Fruits
                                         </MenuItem>
-                                        <MenuItem onClick={() => closeSidebarAndNavigate('/ourPrdGrains')}
-                                                  sx={getSidebarSubmenuItemStyles(isActiveRoute('/ourPrdGrains'))}>
+                                        <MenuItem onClick={() => closeSidebarAndNavigate('/our-prd-grains')}
+                                                  sx={getSidebarSubmenuItemStyles(isActiveRoute('/our-prd-grains'))}>
                                             <ArrowRightIcon/>
                                             Grains
                                         </MenuItem>
-                                        <MenuItem onClick={() => closeSidebarAndNavigate('/ourPrdSpices')}
-                                                  sx={getSidebarSubmenuItemStyles(isActiveRoute('/ourPrdSpices'))}>
+                                        <MenuItem onClick={() => closeSidebarAndNavigate('/our-prd-spices')}
+                                                  sx={getSidebarSubmenuItemStyles(isActiveRoute('/our-prd-spices'))}>
                                             <ArrowRightIcon/>
                                             Spices
                                         </MenuItem>

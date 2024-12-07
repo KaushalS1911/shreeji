@@ -41,7 +41,7 @@ const PrdInfoDec = () => {
               <Typography component={'img'} src={line} width={'20px'} alt="line" style={{ marginRight: '10px' }} />Product Info
             </Typography>
             <Typography sx={{ mb: 1, ml: { lg: 12, md: 17, sm: 24 }, fontSize: '14px', fontWeight: 500 }}>
-              <Typography variant="span" onClick={() => navigate('/')} sx={{ cursor: 'pointer' }} >Home</Typography> / <Typography variant="span" onClick={() => navigate('/ourProducts')} sx={{ cursor: 'pointer' }}>Our Products</Typography> / <Typography variant='span' sx={{ color: '#19AED7', fontWeight: 500 }}>Product Information</Typography>
+              <Typography variant="span" onClick={() => navigate('/')} sx={{ cursor: 'pointer' }} >Home</Typography> / <Typography variant="span" onClick={() => navigate('/our-products')} sx={{ cursor: 'pointer' }}>Our Products</Typography> / <Typography variant='span' sx={{ color: '#19AED7', fontWeight: 500 }}>Product Information</Typography>
             </Typography>
           </Box>
         </Container>

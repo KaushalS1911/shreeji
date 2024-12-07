@@ -8,9 +8,9 @@ import spices from '../../assets/images/home/spices.webp'
 import {useNavigate} from 'react-router-dom'
 
 const products = [
-    { image: fruites, label: ['Fresh Fruits &', <br />, 'Vegetables'], labelPadding: 2,to: "/ourPrdFruits" },
-    { image: grains, label: ['Organic Grains', <br />, '& Pulses'], labelPadding: 2 ,to: "/ourPrdGrains"},
-    { image: spices, label: ['Spices'], labelPadding: 3.5,to: "/ourPrdSpices" }
+    { image: fruites, label: ['Fresh Fruits &', <br />, 'Vegetables'], labelPadding: 2,to: "/our-prd-fruits" },
+    { image: grains, label: ['Organic Grains', <br />, '& Pulses'], labelPadding: 2 ,to: "/our-prd-grains"},
+    { image: spices, label: ['Spices'], labelPadding: 3.5,to: "/our-prd-spices" }
 ];
 
 
@@ -30,26 +30,48 @@ const HomePrd = () => {
                         <Grid container spacing={5}>
                             {products.map((product, index) => (
                                 <Grid item sm={4} xs={12} key={index}>
-                                    <Box sx={{ position: 'relative' ,cursor:"pointer"}} onClick={() => navigate(`${product.to}`)}>
-                                        <Typography component={'img'} src={product.image} sx={{ width: '100%', objectFit: 'cover', height: { sm: 'auto', xs: '350px' } }} />
-                                        <Typography sx={{
-                                            position: 'absolute',
-                                            bottom: '5%',
-                                            width: '85%',
-                                            backgroundColor: '#fff',
-                                            boxShadow: 1,
-                                            display: 'flex',
-                                            justifyContent: 'center',
-                                            color: '#555555',
-                                            fontWeight: 600,
-                                            py: product.labelPadding,
-                                            left: { sm: '-6%', xs: '-3%' }
-                                        }}>
+                                    <Box
+                                        sx={{
+                                            position: 'relative',
+                                            cursor: 'pointer',
+                                            overflow: 'hidden', // Ensures the scaling image doesn't overflow
+                                        }}
+                                        onClick={() => navigate(`${product.to}`)}
+                                    >
+                                        <Typography
+                                            component={'img'}
+                                            src={product.image}
+                                            sx={{
+                                                width: '100%',
+                                                objectFit: 'cover',
+                                                height: { sm: 'auto', xs: '350px' },
+                                                transition: 'transform 0.3s ease-in-out', // Smooth transition for scaling
+                                                '&:hover': {
+                                                    transform: 'scale(1.1)', // Scale up the image slightly
+                                                },
+                                            }}
+                                        />
+                                        <Typography
+                                            sx={{
+                                                position: 'absolute',
+                                                bottom: '5%',
+                                                width: '85%',
+                                                backgroundColor: '#fff',
+                                                boxShadow: 1,
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                                color: '#555555',
+                                                fontWeight: 600,
+                                                py: product.labelPadding,
+                                                left: { sm: '-6%', xs: '-3%' },
+                                            }}
+                                        >
                                             {product.label}
                                         </Typography>
                                     </Box>
                                 </Grid>
                             ))}
+
                         </Grid>
                         <Box sx={{ position: 'absolute', top: '-10%', left: '-2%', zIndex: -1, display: { sm: 'block', xs: 'none' } }}>
                             <Typography component={'img'} src={bgLightBlue} sx={{ width: { lg: '80%', md: '68%', xs: '53%' } }}></Typography>

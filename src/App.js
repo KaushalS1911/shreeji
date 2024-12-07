@@ -48,15 +48,15 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/ourProducts" element={<OurProducts />} />
-        <Route path="/ourPrdFruits" element={<OurPrdFruits />} />
-        <Route path="/ourPrdGrains" element={<OurPrdGrains />} />
-        <Route path="/ourPrdSpices" element={<OurPrdSpices />} />
+        <Route path="/our-products" element={<OurProducts />} />
+        <Route path="/our-prd-fruits" element={<OurPrdFruits />} />
+        <Route path="/our-prd-grains" element={<OurPrdGrains />} />
+        <Route path="/our-prd-spices" element={<OurPrdSpices />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:blogId" element={<ProductionBlogs />} />
         <Route path="/gallery" element={<Gallery />} />
-        <Route path="/productInfo/:id" element={<PrdInfo />} />
+        <Route path="/productinfo/:id" element={<PrdInfo />} />
       </Routes>
       <Footer />
     </>

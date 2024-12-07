@@ -29,8 +29,27 @@ const HomePrdRange = () => {
                     <Grid container spacing={3}>
                         {productRange.map((product, index) => (
                             <Grid item md={2.4} sm={4} xs={12} key={index}>
-                                <Box sx={{ position: 'relative' }}>
-                                    <Typography component={'img'} src={product.image} width={'100%'} />
+                                <Box
+                                    sx={{
+                                        position: 'relative',
+                                        overflow: 'hidden', // Ensures the image doesn't scale outside the box
+                                        transition: 'box-shadow 0.3s ease-in-out',
+                                        '&:hover': {
+                                            boxShadow: 6, // Add shadow on hover
+                                            '& img': {
+                                                transform: 'scale(1.1)', // Scale the image on hover
+                                            },
+                                        },
+                                    }}
+                                >
+                                    <Typography
+                                        component={'img'}
+                                        src={product.image}
+                                        width={'100%'}
+                                        sx={{
+                                            transition: 'transform 0.3s ease-in-out', // Smooth scaling transition
+                                        }}
+                                    />
                                     <Typography
                                         sx={{
                                             position: 'absolute',
@@ -43,7 +62,7 @@ const HomePrdRange = () => {
                                             color: '#555555',
                                             py: 2,
                                             fontWeight: 600,
-                                            left: { sm: '-6%', xs: '-3%' }
+                                            left: { sm: '-6%', xs: '-3%' },
                                         }}
                                     >
                                         {product.label}
@@ -51,6 +70,7 @@ const HomePrdRange = () => {
                                 </Box>
                             </Grid>
                         ))}
+
                     </Grid>
                 </Box>
             </Container>

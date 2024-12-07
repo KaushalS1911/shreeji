@@ -8,9 +8,9 @@ import spices from '../../assets/images/ourProducts/ourPrdSpices.webp'
 import { useNavigate } from 'react-router-dom'
 
 const products = [
-    { image: fruites, label: ['Fresh Fruits &', <br />, 'Vegetables'], labelPadding: 2, path: '/ourPrdFruits' },
-    { image: grains, label: ['Organic Grains', <br />, '& Pulses'], labelPadding: 2, path: '/ourPrdGrains' },
-    { image: spices, label: ['Spices'], labelPadding: 3.5, path: '/ourPrdSpices' }
+    { image: fruites, label: ['Fresh Fruits &', <br />, 'Vegetables'], labelPadding: 2, path: '/our-prd-fruits' },
+    { image: grains, label: ['Organic Grains', <br />, '& Pulses'], labelPadding: 2, path: '/our-prd-grains' },
+    { image: spices, label: ['Spices'], labelPadding: 3.5, path: '/our-prd-spices' }
 ];
 
 const OurPrdItems = () => {

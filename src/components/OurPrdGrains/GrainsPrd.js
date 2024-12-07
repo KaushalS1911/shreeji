@@ -66,33 +66,46 @@ const GrainsPrd = () => {
             </Box>
             <Grid container spacing={5}>
               {products.map((blogPrd, index) => (
-                <Grid item md={4} sm={6} xs={12} key={index}>
-                  <Box sx={{ position: 'relative', cursor: "pointer" }} onClick={() => navigate(`/productInfo/${blogPrd._id}`)}>
-                    <Typography component={'img'} src={blogPrd.image} sx={{
-                      width: '100%',
-                      objectFit: 'cover',
-                      height: { sm: '300px', xs: '300px' }
-                    }}></Typography>
-                    <Typography sx={{
-                      position: 'absolute',
-                      bottom: '10%',
-                      width: '80%',
-                      backgroundColor: '#fff',
-                      boxShadow: 1,
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      color: '#555555',
-                      fontWeight: 600,
-                      py: 3,
-                      px: 3,
-                      fontSize: { sm: '16px', xs: '14px' },
-                      left: { sm: '-6%', xs: '-3%' }
-                    }}>
-                      {blogPrd.title}
-                    </Typography>
-                  </Box>
-                </Grid>
+                  <Grid item md={4} sm={6} xs={12} key={index}>
+                    <Box
+                        sx={{ position: 'relative', cursor: 'pointer', overflow: 'hidden' }}
+                        onClick={() => navigate(`/productinfo/${blogPrd._id}`)}
+                    >
+                      <Typography
+                          component={'img'}
+                          src={blogPrd.image}
+                          sx={{
+                            width: '100%',
+                            objectFit: 'cover',
+                            height: { sm: '300px', xs: '300px' },
+                            transition: 'transform 0.3s ease-in-out', // Smooth transition
+                            '&:hover': {
+                              transform: 'scale(1.1)', // Scale effect on hover
+                            },
+                          }}
+                      />
+                      <Typography
+                          sx={{
+                            position: 'absolute',
+                            bottom: '10%',
+                            width: '80%',
+                            backgroundColor: '#fff',
+                            boxShadow: 1,
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            color: '#555555',
+                            fontWeight: 600,
+                            py: 3,
+                            px: 3,
+                            fontSize: { sm: '16px', xs: '14px' },
+                            left: { sm: '-6%', xs: '-3%' },
+                          }}
+                      >
+                        {blogPrd.title}
+                      </Typography>
+                    </Box>
+                  </Grid>
               ))}
             </Grid>
             <Box sx={{ position: 'absolute', top: '-5%', left: '-2%', zIndex: -1, display: { sm: 'block', xs: 'none' } }}>
