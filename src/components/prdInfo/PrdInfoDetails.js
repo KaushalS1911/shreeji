@@ -77,7 +77,6 @@ const PrdInfoDetails = () => {
                                         <Typography sx={{ fontWeight: 500, fontSize: { md: '18px', xs: '14px' } }}>
                                             Product Name: {singleProduct.title}
                                         </Typography>
-
                                         <Typography sx={{ fontWeight: 500, fontSize: { md: '18px', xs: '14px' }, mt: { lg: 5, md: 3, sm: 4, xs: 3 } }}>
                                             Country of Origin: {singleProduct.description.country}
                                         </Typography>
