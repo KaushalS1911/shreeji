@@ -81,13 +81,16 @@ const PrdInfoDetails = () => {
                                             Country of Origin: {singleProduct.description.country}
                                         </Typography>
                                         <Typography sx={{ fontWeight: 500, fontSize: { md: '18px', xs: '14px' }, mt: { lg: 5, md: 3, sm: 4, xs: 3 } }}>
-                                            Shelf Life: {singleProduct.description.shelfLife}
+                                            Varieties: {singleProduct.description.varieties}
                                         </Typography>
                                         <Typography sx={{ fontWeight: 500, fontSize: { md: '18px', xs: '14px' }, mt: { lg: 5, md: 3, sm: 4, xs: 3 } }}>
-                                            Packaging Type: {singleProduct.description.packagingType}
+                                            Certifications: {singleProduct.description.certifications}
                                         </Typography>
                                         <Typography sx={{ fontWeight: 500, fontSize: { md: '18px', xs: '14px' }, mt: { lg: 5, md: 3, sm: 4, xs: 3 } }}>
-                                            Preferred Buyer Location: {singleProduct.description.preferredBuyerLocation}
+                                            Why Choose Us: {singleProduct.description.whyChooseUs}
+                                        </Typography>
+                                        <Typography sx={{ fontWeight: 500, fontSize: { md: '18px', xs: '14px' }, mt: { lg: 5, md: 3, sm: 4, xs: 3 } }}>
+                                            Packaging Options: {singleProduct.description.packagingOptions}
                                         </Typography>
                                     </Box>
                                 </Grid>
