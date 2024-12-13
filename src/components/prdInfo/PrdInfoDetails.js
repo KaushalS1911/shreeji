@@ -64,7 +64,7 @@ const PrdInfoDetails = () => {
                         </Box>
                         <Box sx={{ display: 'flex', justifyContent: 'center', mb: 5 }}>
                             <Typography sx={{ textAlign: 'center', px: { lg: 31, md: 20, sm: 14 }, color: '#00000099', fontSize: { md: '16px', xs: '12px' } }}>
-                                Grains (like wheat and rice), fruits (such as bananas and apples), and Spices (like red chilli powder and Turmeric powder) are commonly imported and exported.
+                                {singleProduct.description.productDetails}
                             </Typography>
                         </Box>
                         <Box>
@@ -98,7 +98,7 @@ const PrdInfoDetails = () => {
                         </Box>
                         <Box sx={{ display: 'flex', justifyContent: 'center', mt: 10 }}>
                             <Typography sx={{ textAlign: 'center', color: '#00000099', fontSize: { md: '22px', sm: '20px', xs: '18px' } }}>
-                                Products like coal, iron ore, and rare earth elements are crucial for various industries and are often traded internationally. Crude oil, natural gas, and renewable energy products are significant commodities in global trade.
+                                {singleProduct.description.productDec}
                             </Typography>
                         </Box>
                     </Box>
